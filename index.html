@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nome — sıradaki öğünün.</title>
+<meta name="description" content="nome, The Soft Series: 500 ml'de gerçek bir öğün. 500 kcal, 30g protein, 26 vitamin ve mineral. Fast food'a daha iyi bir alternatif.">
+<meta name="theme-color" content="#1C1C1A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1C1C1A;--cream:#F7F4EF;--off:#FAFAF8;--stone:#6B6B65;--linen:#E2DED7;
+  --choco:#3D2314;--choco-acc:#C4855A;--choco-bg:#F5EDE6;
+  --berry:#2D1A3A;--berry-acc:#8B4F7A;--berry-bg:#F2ECF5;
+  --banana:#2A2200;--banana-acc:#C8A63A;--banana-bg:#F8F4E3;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',ui-monospace,monospace;
+  --pad:20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.65;color:var(--charcoal);background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--pad)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--charcoal);color:var(--cream);padding:10px 16px;z-index:200}
+.skip:focus{left:8px;top:8px}
+:focus-visible{outline:2px solid var(--choco-acc);outline-offset:3px}
+
+/* type helpers */
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone)}
+.h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.12;letter-spacing:-.5px}
+.h2 em{font-weight:400;font-style:italic;color:var(--stone)}
+.section{padding:72px 0;border-bottom:1px solid var(--linen)}
+.section-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.section-head::after{content:"";flex:1;height:1px;background:var(--linen)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 24px;border-radius:2px;font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.02em;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-light{background:var(--cream);color:var(--charcoal)}
+.btn-light:hover{background:#fff}
+.btn-ghost-dark{background:transparent;color:var(--cream);border-color:rgba(247,244,239,.35);font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase}
+.btn-ghost-dark:hover{border-color:var(--cream)}
+.btn-ghost{background:transparent;color:var(--charcoal);border-color:var(--charcoal);font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;min-height:38px;padding:8px 16px}
+.btn-ghost:hover{background:var(--charcoal);color:var(--cream)}
+.btn-dark{background:var(--charcoal);color:var(--cream)}
+.btn-dark:hover{background:#000}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--linen)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.wordmark{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:-.3px;text-decoration:none}
+.nav ul{display:none;list-style:none;gap:32px}
+.nav ul a{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);text-decoration:none}
+.nav ul a:hover{color:var(--charcoal)}
+
+/* hero */
+.hero{background:var(--charcoal);color:var(--cream);padding:64px 0 72px;overflow:hidden}
+.hero .wrap{display:grid;gap:56px;align-items:center}
+.hero .eyebrow{color:rgba(247,244,239,.6);margin-bottom:20px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(48px,12vw,84px);line-height:1.02;letter-spacing:-1.5px;margin-bottom:24px}
+.hero h1 em{font-weight:400;font-style:italic;color:rgba(247,244,239,.62)}
+.hero p{font-size:17px;color:rgba(247,244,239,.72);max-width:400px;margin-bottom:36px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.bottles{display:flex;justify-content:center;align-items:flex-end;gap:14px}
+.bottles svg{filter:drop-shadow(0 20px 36px rgba(0,0,0,.45))}
+.b-side{width:84px;height:auto;transform:translateY(18px)}
+.b-center{width:104px;height:auto}
+
+/* stats */
+.stats{background:var(--off);border-bottom:1px solid var(--linen)}
+.stats ul{list-style:none;display:grid;grid-template-columns:1fr 1fr}
+.stats li{padding:28px 20px;border-right:1px solid var(--linen);border-bottom:1px solid var(--linen)}
+.stats li:nth-child(2n){border-right:none}
+.stats li:nth-child(n+3){border-bottom:none}
+.stat-num{font-family:var(--serif);font-weight:700;font-size:38px;line-height:1}
+.stat-label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin-top:8px}
+
+/* problem */
+.problem .h2{max-width:640px;margin-bottom:28px}
+.problem-grid{display:grid;gap:28px}
+.problem-copy p{font-size:17px;color:#3a3a37;max-width:520px}
+.problem-copy p+p{margin-top:14px}
+.problem-list{list-style:none;border-top:1px solid var(--linen)}
+.problem-list li{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--linen)}
+.problem-list .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);min-width:96px}
+.answer{margin-top:44px;font-family:var(--serif);font-size:clamp(26px,5vw,38px);line-height:1.2}
+.answer em{font-style:italic;color:var(--stone)}
+
+/* series */
+.series .h2{margin-bottom:40px}
+.cards{display:grid;gap:12px}
+.card{border:1px solid var(--linen);border-radius:2px;padding:32px 28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;min-height:300px}
+.card h3{font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.12;margin:14px 0 12px}
+.card .taste{font-size:15px;max-width:230px}
+.card .spec{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-top:22px;padding-top:14px;border-top:1px solid currentColor;opacity:.85}
+.card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.card svg{width:76px;height:auto}
+.card.choco{background:var(--choco-bg);color:var(--choco)}
+.card.berry{background:var(--berry-bg);color:var(--berry)}
+.card.banana{background:var(--banana-bg);color:var(--banana)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:middle}
+
+/* why */
+.why{background:var(--charcoal);color:var(--cream);border-bottom:none}
+.why .eyebrow{color:rgba(247,244,239,.6)}
+.why .section-head::after{background:rgba(247,244,239,.14)}
+.why .h2 em{color:rgba(247,244,239,.6)}
+.why .h2{margin-bottom:40px}
+.why-grid{display:grid;border-top:1px solid rgba(247,244,239,.14)}
+.why-item{padding:26px 0;border-bottom:1px solid rgba(247,244,239,.14);display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:baseline}
+.why-num{font-family:var(--serif);font-weight:700;font-size:32px;line-height:1}
+.why-item h3{font-family:var(--sans);font-weight:500;font-size:16px;margin-bottom:4px}
+.why-item p{font-size:15px;color:rgba(247,244,239,.7)}
+
+/* where */
+.where{background:var(--off)}
+.where .h2{margin-bottom:16px}
+.where-lead{font-size:17px;color:#3a3a37;max-width:520px;margin-bottom:36px}
+.signup{display:grid;gap:24px;border:1px solid var(--linen);background:var(--cream);padding:28px 24px;border-radius:2px}
+.signup form{display:grid;gap:10px}
+.signup label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
+.field{display:flex;flex-direction:column;gap:10px}
+.field input{min-height:48px;padding:12px 14px;border:1px solid var(--stone);border-radius:2px;background:var(--off);font-family:var(--sans);font-size:16px;color:var(--charcoal)}
+.field input:focus{outline:2px solid var(--charcoal);outline-offset:1px}
+.error{font-size:13px;color:#8A2A2A;min-height:20px}
+.success{display:none;font-family:var(--serif);font-size:24px;line-height:1.3}
+.success em{font-style:italic;color:var(--stone)}
+.signup.done form{display:none}
+.signup.done .success{display:block}
+.kvkk{font-size:13px;color:var(--stone);line-height:1.6;border-top:1px solid var(--linen);padding-top:18px}
+.kvkk a{color:var(--charcoal)}
+
+/* footer */
+footer{background:var(--charcoal);color:var(--cream);padding:48px 0}
+footer .wrap{display:grid;gap:24px}
+.f-line{font-family:var(--serif);font-size:22px}
+.f-line em{font-style:italic;color:rgba(247,244,239,.6)}
+.f-meta{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,244,239,.65);display:flex;flex-wrap:wrap;gap:8px 24px}
+.f-meta a{text-decoration:none}
+.f-meta a:hover{color:var(--cream)}
+
+/* reveal (only when JS present) */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ≥ 720px */
+@media (min-width:720px){
+  :root{--pad:40px}
+  .nav ul{display:flex}
+  .stats ul{grid-template-columns:repeat(4,1fr)}
+  .stats li{border-bottom:none;padding:36px 28px}
+  .stats li:nth-child(2n){border-right:1px solid var(--linen)}
+  .stats li:last-child{border-right:none}
+  .problem-grid{grid-template-columns:1.1fr 1fr;gap:64px}
+  .why-grid{grid-template-columns:1fr 1fr;column-gap:56px}
+  .signup{grid-template-columns:1.3fr 1fr;padding:36px}
+  .signup .kvkk{border-top:none;border-left:1px solid var(--linen);padding:0 0 0 24px}
+  .field{flex-direction:row}
+  .field input{flex:1}
+  footer .wrap{grid-template-columns:1fr auto;align-items:end}
+}
+/* ≥ 1000px */
+@media (min-width:1000px){
+  .section{padding:104px 0}
+  .hero{padding:96px 0 104px;min-height:calc(100vh - 64px);display:flex;align-items:center}
+  .hero .wrap{grid-template-columns:1.05fr 1fr;width:100%}
+  .b-side{width:104px;transform:translateY(28px)}
+  .b-center{width:128px}
+  .cards{grid-template-columns:repeat(3,1fr);gap:2px;background:var(--linen);border:1px solid var(--linen)}
+  .card{border:none;grid-template-columns:1fr;align-items:start;min-height:520px}
+  .card svg{width:96px;justify-self:end;margin-top:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+
+<!-- Bottle shape, reused. Colours via CSS variables on each <svg>. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="bclip"><path d="M30 14 Q30 6 45 6 Q60 6 60 14 L64 30 Q72 38 72 52 L72 196 Q72 214 45 214 Q18 214 18 196 L18 52 Q18 38 26 30 Z"/></clipPath>
+    <symbol id="bottle" viewBox="0 0 90 220">
+      <rect x="32" y="0" width="26" height="10" rx="2" fill="var(--b-dark)"/>
+      <g clip-path="url(#bclip)">
+        <rect width="90" height="220" fill="var(--b-light)"/>
+        <rect y="112" width="90" height="108" fill="var(--b-dark)"/>
+        <rect y="111" width="90" height="1.2" fill="var(--b-acc)"/>
+      </g>
+      <path d="M30 14 Q30 6 45 6 Q60 6 60 14 L64 30 Q72 38 72 52 L72 196 Q72 214 45 214 Q18 214 18 196 L18 52 Q18 38 26 30 Z" fill="none" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+      <text x="45" y="72" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-weight="700" font-size="13" fill="var(--b-dark)">nome</text>
+      <text x="45" y="168" text-anchor="middle" font-family="DM Mono, monospace" font-size="5" letter-spacing=".6" fill="var(--b-light)">500 KCAL · 30G</text>
+      <text x="45" y="177" text-anchor="middle" font-family="DM Mono, monospace" font-size="5" letter-spacing=".6" fill="var(--b-acc)">PROTEİN</text>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <nav class="wrap" aria-label="Ana menü">
+    <a href="#top" class="wordmark" aria-label="nome ana sayfa">nome</a>
+    <ul>
+      <li><a href="#urunler">Ürünler</a></li>
+      <li><a href="#neden">Neden nome</a></li>
+      <li><a href="#nerede">Nerede bulunur</a></li>
+    </ul>
+    <a href="#nerede" class="btn btn-ghost">Haber Ver</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">The Soft Series · 500 ml</p>
+        <h1 id="hero-title">Aç.<br>İç.<br><em>Devam et.</em></h1>
+        <p>Fast food'a daha iyi bir alternatif. Gerçek bir öğün, tek şişede.</p>
+        <div class="cta-row">
+          <a href="#urunler" class="btn btn-light">Ürünleri Keşfet</a>
+          <a href="#nerede" class="btn btn-ghost-dark">Nerede Bulunur</a>
+        </div>
+      </div>
+      <div class="bottles" role="img" aria-label="Classic Chocolate, Wild Berries ve Creamy Banana şişeleri yan yana">
+        <svg class="b-side" viewBox="0 0 90 220" aria-hidden="true" style="--b-light:#F5EDE6;--b-dark:#3D2314;--b-acc:#C4855A">
+          <use href="#bottle"/>
+          <text x="45" y="86" text-anchor="middle" font-family="DM Mono, monospace" font-size="5.5" letter-spacing="1.6" fill="#3D2314">CHOCOLATE</text>
+        </svg>
+        <svg class="b-center" viewBox="0 0 90 220" aria-hidden="true" style="--b-light:#F2ECF5;--b-dark:#2D1A3A;--b-acc:#8B4F7A">
+          <use href="#bottle"/>
+          <text x="45" y="86" text-anchor="middle" font-family="DM Mono, monospace" font-size="5.5" letter-spacing="1.6" fill="#2D1A3A">WILD BERRIES</text>
+        </svg>
+        <svg class="b-side" viewBox="0 0 90 220" aria-hidden="true" style="--b-light:#F8F4E3;--b-dark:#2A2200;--b-acc:#C8A63A">
+          <use href="#bottle"/>
+          <text x="45" y="86" text-anchor="middle" font-family="DM Mono, monospace" font-size="5.5" letter-spacing="1.6" fill="#2A2200">BANANA</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Bir şişede">
+    <ul class="wrap">
+      <li><div class="stat-num">500</div><div class="stat-label">kcal / öğün</div></li>
+      <li><div class="stat-num">30g</div><div class="stat-label">Protein</div></li>
+      <li><div class="stat-num">26</div><div class="stat-label">Vitamin &amp; mineral</div></li>
+      <li><div class="stat-num">0</div><div class="stat-label">Eklenmiş şeker</div></li>
+    </ul>
+  </section>
+
+  <!-- PROBLEM -> SOLUTION -->
+  <section class="section problem" aria-labelledby="problem-title">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Gerçekçi olalım</span></div>
+      <h2 class="h2 reveal" id="problem-title">Bugün öğle yemeği <em>yedin mi?</em></h2>
+      <div class="problem-grid">
+        <div class="problem-copy reveal">
+          <p>Toplantı uzadı. Kurye geç kaldı. Büfeden bir sandviç, ya da hiçbir şey.</p>
+          <p>Sorun irade değil. Gün boyu verilen yüzlerce kararın sonunda, öğün en kolay ertelenen olur.</p>
+        </div>
+        <ul class="problem-list reveal">
+          <li><span class="k">12:40</span><span>Atlanan öğle yemeği</span></li>
+          <li><span class="k">15:10</span><span>Atıştırmalık rafından bir şey</span></li>
+          <li><span class="k">20:30</span><span>Kapıda fast food</span></li>
+        </ul>
+      </div>
+      <p class="answer reveal">nome: hızlı, temiz, <em>düşünülmüş.</em></p>
+    </div>
+  </section>
+
+  <!-- THE SOFT SERIES -->
+  <section class="section series" id="urunler" aria-labelledby="series-title">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">The Soft Series</span></div>
+      <h2 class="h2 reveal" id="series-title">Üç tat. <em>Tek sistem.</em></h2>
+      <div class="cards">
+        <article class="card choco reveal" aria-labelledby="c1">
+          <div>
+            <span class="tag"><span class="dot" style="background:#C4855A" aria-hidden="true"></span>01</span>
+            <h3 id="c1">Classic<br>Chocolate</h3>
+            <p class="taste">Yoğun kakao, dengeli tatlılık.</p>
+            <p class="spec">500 ml · 500 kcal · 30g protein</p>
+          </div>
+          <svg viewBox="0 0 90 220" role="img" aria-label="Classic Chocolate şişesi" style="--b-light:#FAFAF8;--b-dark:#3D2314;--b-acc:#C4855A">
+            <use href="#bottle"/>
+            <text x="45" y="86" text-anchor="middle" font-family="DM Mono, monospace" font-size="5.5" letter-spacing="1.6" fill="#3D2314">CHOCOLATE</text>
+          </svg>
+        </article>
+        <article class="card berry reveal" aria-labelledby="c2">
+          <div>
+            <span class="tag"><span class="dot" style="background:#8B4F7A" aria-hidden="true"></span>02</span>
+            <h3 id="c2">Wild<br>Berries</h3>
+            <p class="taste">Orman meyveleri, hafif ekşi bir bitiş.</p>
+            <p class="spec">500 ml · 500 kcal · 30g protein</p>
+          </div>
+          <svg viewBox="0 0 90 220" role="img" aria-label="Wild Berries şişesi" style="--b-light:#FAFAF8;--b-dark:#2D1A3A;--b-acc:#8B4F7A">
+            <use href="#bottle"/>
+            <text x="45" y="86" text-anchor="middle" font-family="DM Mono, monospace" font-size="5.5" letter-spacing="1.6" fill="#2D1A3A">WILD BERRIES</text>
+          </svg>
+        </article>
+        <article class="card banana reveal" aria-labelledby="c3">
+          <div>
+            <span class="tag"><span class="dot" style="background:#C8A63A" aria-hidden="true"></span>03</span>
+            <h3 id="c3">Creamy<br>Banana</h3>
+            <p class="taste">Olgun muz, pürüzsüz doku.</p>
+            <p class="spec">500 ml · 500 kcal · 30g protein</p>
+          </div>
+          <svg viewBox="0 0 90 220" role="img" aria-label="Creamy Banana şişesi" style="--b-light:#FAFAF8;--b-dark:#2A2200;--b-acc:#C8A63A">
+            <use href="#bottle"/>
+            <text x="45" y="86" text-anchor="middle" font-family="DM Mono, monospace" font-size="5.5" letter-spacing="1.6" fill="#2A2200">BANANA</text>
+          </svg>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section why" id="neden" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Neden nome</span></div>
+      <h2 class="h2 reveal" id="why-title">Atıştırmalık değil. <em>Öğün.</em></h2>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-num">500</div>
+          <div><h3>Gerçek bir öğün</h3><p>Şişe başına 500 kcal. Bir öğle yemeğinin enerjisi.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-num">30g</div>
+          <div><h3>Protein</h3><p>Her şişede 30 gram. Öğleden sonraya kadar tok.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-num">26</div>
+          <div><h3>Vitamin ve mineral</h3><p>Etikette tek tek listelenir.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-num">0</div>
+          <div><h3>Glutensiz · Laktosuz · Eklenmiş şeker yok</h3><p>Ne olmadığı da ne olduğu kadar net.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE -->
+  <section class="section where" id="nerede" aria-labelledby="where-title">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Nerede bulunur</span></div>
+      <h2 class="h2 reveal" id="where-title">Yakında <em>raflarda.</em></h2>
+      <p class="where-lead reveal">Satışa çıktığımız ilk gün haber verelim. Tek bir e-posta, başka bir şey değil.</p>
+      <div class="signup reveal" id="signup">
+        <div>
+          <form id="signup-form" novalidate>
+            <label for="email">E-posta adresin</label>
+            <div class="field">
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="ad@ornek.com" required aria-describedby="email-error kvkk-note">
+              <button type="submit" class="btn btn-dark">Haber Ver</button>
+            </div>
+            <p class="error" id="email-error" role="alert" aria-live="polite"></p>
+          </form>
+          <p class="success" role="status" aria-live="polite" tabindex="-1" id="success-msg">Listedesin. <em>Görüşmek üzere.</em></p>
+        </div>
+        <p class="kvkk" id="kvkk-note">E-posta adresin yalnızca nome'un satışa çıkışını duyurmak için, 6698 sayılı KVKK kapsamında işlenir. Üçüncü kişilerle paylaşılmaz; dilediğin an listeden çıkabilirsin. <a href="#">Aydınlatma Metni</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="f-line">nome — <em>öğün, yeniden tanımlandı.</em></p>
+    <div class="f-meta">
+      <a href="mailto:merhaba@nome.com.tr">merhaba@nome.com.tr</a>
+      <a href="https://nome.com.tr">nome.com.tr</a>
+      <a href="#">KVKK</a>
+      <span>© 2026 Nome Labs</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    root.classList.add('js');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
+
+  var form=document.getElementById('signup-form');
+  var input=document.getElementById('email');
+  var err=document.getElementById('email-error');
+  var box=document.getElementById('signup');
+  var ok=document.getElementById('success-msg');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var v=input.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){
+      err.textContent='Geçerli bir e-posta adresi gir.';
+      input.setAttribute('aria-invalid','true');
+      input.focus();
+      return;
+    }
+    err.textContent='';
+    input.removeAttribute('aria-invalid');
+    box.classList.add('done');
+    ok.focus();
+  });
+})();
+</script>
+</body>
+</html>
